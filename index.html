@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#25636f" />
+  <title>UDL 행동성장 기록</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div><p class="eyebrow">교사용 관찰 도구</p><h1>UDL 행동성장 기록</h1></div>
+    <button id="installButton" class="ghost hidden" type="button">설치</button>
+  </header>
+  <main class="shell">
+    <section class="panel quick-record" aria-labelledby="recordTitle">
+      <div class="section-head"><div><p class="eyebrow">10초 기록</p><h2 id="recordTitle">오늘의 관찰</h2></div><button id="seedButton" class="soft" type="button">예시 자료</button></div>
+      <form id="recordForm" class="record-grid">
+        <label>학생 코드<select id="studentSelect" required></select></label>
+        <label>날짜<input id="dateInput" type="date" required /></label>
+        <label>교과<input id="subjectInput" type="text" placeholder="국어, 수학, 통합교과" /></label>
+        <label>시간대<select id="periodInput"><option>1교시</option><option>2교시</option><option>3교시</option><option>4교시</option><option>5교시</option><option>6교시</option><option>방과후</option></select></label>
+        <fieldset class="strategy-box"><legend>UDL 지원 전략</legend><div id="strategyList" class="strategy-list"></div></fieldset>
+        <div class="metric-row">
+          <label>빈도<input id="frequencyInput" type="number" min="0" value="0" required /></label>
+          <label>지속시간(분)<input id="durationInput" type="number" min="0" step="0.5" value="0" /></label>
+          <label>강도<select id="intensityInput"><option value="0">0 없음</option><option value="1">1 낮음</option><option value="2">2 중간</option><option value="3">3 높음</option></select></label>
+          <label>참여율(%)<input id="engagementInput" type="number" min="0" max="100" value="80" /></label>
+        </div>
+        <details class="abc"><summary>ABC 기록과 특이사항</summary><label>행동 전 상황<input id="antecedentInput" type="text" /></label><label>관찰된 행동<input id="behaviorInput" type="text" /></label><label>직후 반응<input id="consequenceInput" type="text" /></label><label>특이사항<textarea id="noteInput" rows="3"></textarea></label></details>
+        <button class="primary" type="submit">기록 저장</button>
+      </form>
+    </section>
+    <section class="panel" aria-labelledby="studentTitle">
+      <div class="section-head"><div><p class="eyebrow">실명 없이 관리</p><h2 id="studentTitle">학생 등록</h2></div></div>
+      <form id="studentForm" class="student-form"><label>학생 코드<input id="studentCodeInput" type="text" placeholder="예: A학생, 1-01" required /></label><label>학년<input id="gradeInput" type="text" placeholder="예: 3학년" /></label><label>관찰 행동의 조작적 정의<textarea id="definitionInput" rows="4" placeholder="예: 과제 제시 후 10초 이상 자리에서 이탈하거나 큰 소리로 말하는 행동"></textarea></label><button class="secondary" type="submit">학생 추가</button></form>
+      <div id="studentCards" class="student-cards"></div>
+    </section>
+    <section class="panel wide" aria-labelledby="dashboardTitle">
+      <div class="section-head"><div><p class="eyebrow">해석은 신중하게</p><h2 id="dashboardTitle">관찰 결과</h2></div><div class="actions"><button id="csvButton" class="soft" type="button">CSV</button><button id="printButton" class="soft" type="button">보고서</button></div></div>
+      <div class="summary"><div><span>기록 수</span><strong id="recordCount">0</strong></div><div><span>평균 빈도</span><strong id="avgFrequency">0</strong></div><div><span>평균 참여율</span><strong id="avgEngagement">0%</strong></div><div><span>변화 양상</span><strong id="changeRate">-</strong></div></div>
+      <p id="interpretation" class="interpretation">기록을 추가하면 관찰 기간의 변화 양상이 표시됩니다. 인과관계는 단정하지 않습니다.</p>
+      <div class="chart-wrap"><canvas id="trendChart" width="960" height="360" aria-label="일별 빈도와 참여율 그래프"></canvas></div>
+      <div id="recordList" class="record-list"></div>
+    </section>
+    <section class="panel danger-zone"><h2>자료 관리</h2><p>학생 실명, 장애명, 연락처는 입력하지 않는 것을 권장합니다. 실제 학생 자료는 학교 지침을 확인한 뒤 사용하세요.</p><button id="clearButton" class="danger" type="button">전체 삭제</button></section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
