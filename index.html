@@ -6,12 +6,13 @@
   <meta name="theme-color" content="#25636f" />
   <title>UDL 행동성장 기록</title>
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css?v=17" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="styles.css?v=25" />
 </head>
 <body>
   <header class="topbar">
     <div><p class="eyebrow">교사용 관찰 도구</p><h1>UDL 행동성장 기록</h1></div>
-    <button id="installButton" class="ghost hidden" type="button">설치</button>
+    <button id="installButton" class="ghost hidden" type="button">앱 설치</button>
   </header>
   <main class="shell">
     <section class="panel quick-record" aria-labelledby="recordTitle">
@@ -49,8 +50,8 @@
       </div>
       <div id="recordList" class="record-list"></div>
     </section>
-    <section class="panel danger-zone"><h2>자료 관리</h2><p>학생 실명, 장애명, 연락처는 입력하지 않는 것을 권장합니다. 실제 학생 자료는 학교 지침을 확인한 뒤 사용하세요.</p><button id="clearButton" class="danger" type="button">내 기기 기록 전체 삭제</button></section>
+    <section class="panel danger-zone"><h2>자료 관리</h2><p>학생 실명, 장애명, 연락처는 입력하지 않는 것을 권장합니다. 실제 학생 자료는 학교 지침을 확인한 뒤 사용하세요.</p><div class="backup-actions"><button id="backupButton" class="soft" type="button">백업 저장</button><label class="file-button">백업 불러오기<input id="restoreInput" type="file" accept="application/json,.json" /></label></div><button id="clearButton" class="danger" type="button">내 기기 기록 전체 삭제</button></section>
   </main>
-  <script src="app.js?v=17"></script>
+  <script src="app.js?v=21"></script>
 </body>
 </html>
