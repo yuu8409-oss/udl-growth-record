@@ -1,6 +1,6 @@
 {
   "name": "UDL 행동성장 기록",
-  "short_name": "UDL 기록",
+  "short_name": "UDL 함께성장",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0d1424",
@@ -19,6 +19,6 @@
       "purpose": "any maskable"
     }
   ],
-  "description": "UDL 지원 전략과 학생의 수업 참여 변화를 기록하는 교사용 관찰 앱",
+  "description": "보편적 학습 설계를 적용한 수업 참여 빈도 기록 도구 v1.0.8",
   "scope": "./"
 }

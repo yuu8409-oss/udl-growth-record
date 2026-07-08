@@ -3,55 +3,193 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#25636f" />
-  <title>UDL 행동성장 기록</title>
+  <meta name="theme-color" content="#0d1424" />
+  <title>UDL 참여 관찰 기록</title>
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icon-192.png" />
-  <link rel="stylesheet" href="styles.css?v=25" />
+  <link rel="stylesheet" href="styles.css?v=92" />
 </head>
 <body>
   <header class="topbar">
-    <div><p class="eyebrow">교사용 관찰 도구</p><h1>UDL 행동성장 기록</h1></div>
-    <button id="installButton" class="ghost hidden" type="button">앱 설치</button>
-  </header>
-  <main class="shell">
-    <section class="panel quick-record" aria-labelledby="recordTitle">
-      <div class="section-head"><div><p class="eyebrow">10초 기록</p><h2 id="recordTitle">오늘의 관찰</h2></div><button id="seedButton" class="soft" type="button">예시 자료</button></div>
-      <form id="recordForm" class="record-grid">
-        <label>학생 코드<select id="studentSelect" required></select></label>
-        <label>날짜<input id="dateInput" type="date" required /></label>
-        <label>교과<input id="subjectInput" type="text" placeholder="국어, 수학, 통합교과" /></label>
-        <label>사용한 도구와 매체<input id="toolMediaInput" type="text" placeholder="예: 시각적 일과표, 그림카드, 태블릿, 실물 자료" /></label>
-        <label>시간대<select id="periodInput"><option>1교시</option><option>2교시</option><option>3교시</option><option>4교시</option><option>5교시</option><option>6교시</option><option>방과후</option></select></label>
-        <details class="strategy-box"><summary>UDL 지원 전략</summary><div id="strategyList" class="strategy-list grouped"></div></details>
-        <div class="metric-row">
-          <label title="적절한 시각 자료, 선택권, 의사소통 도구 또는 교사의 안내를 활용하여 참여한 경우에도 안정적인 참여로 기록할 수 있습니다.">오늘 수업 참여 정도<select id="engagementInput"><option value="1">거의 참여하지 않음</option><option value="2">일부 참여함</option><option value="3" selected>절반 정도 참여함</option><option value="4">대부분 참여함</option><option value="5">안정적으로 참여함</option></select><small class="hint">지원 도구를 활용한 참여도 안정적인 참여로 기록할 수 있습니다.</small></label>
-          <label>참여가 얼마나 이어졌나요?<select id="durationInput"><option value="0">거의 이어지지 않음</option><option value="1">1분 미만</option><option value="2" selected>1~5분</option><option value="3">5~10분</option><option value="4">10분 이상</option><option value="5">활동이 끝날 때까지</option></select></label>
-          <label title="지원이 많이 필요했다는 기록은 학생의 실패를 의미하지 않습니다. 학생이 수업에 참여하기 위해 어떤 지원이 필요했는지 확인하기 위한 항목입니다.">도움 필요 정도<select id="supportLevelInput"><option value="1">지속적인 도움 필요</option><option value="2">자주 도움 필요</option><option value="3" selected>가끔 도움 필요</option><option value="4">거의 스스로 참여함</option><option value="5">스스로 참여함</option></select><small class="hint">필요한 지원을 확인하기 위한 항목입니다.</small></label>
-          <label>문제 행동 횟수<input id="frequencyInput" type="number" min="0" value="0" required /></label>
-        </div>
-        <details class="abc"><summary>참여 상세 기록과 특이사항</summary><label>선행사건<input id="antecedentInput" type="text" placeholder="예: 과제 제시, 활동 전환, 교사의 지시, 친구의 말, 소음" /></label><label>관찰된 행동/참여 모습<input id="behaviorInput" type="text" placeholder="예: 과제 시작, 도움 요청, 그림카드 선택, 자리 이탈" /></label><label>결과<input id="consequenceInput" type="text" placeholder="예: 시각 단서 제공, 휴식 제공, 과제 분량 조절, 칭찬" /></label><label>특이사항(배경사건: 아침 식사, 수면, 약 복용, 등교 전 갈등, 일정 변경 등)<textarea id="noteInput" rows="3" placeholder="예: 오늘 아침을 먹지 않음, 전날 수면 부족, 평소와 다른 일정"></textarea></label></details>
-        <button class="primary" type="submit">기록 저장</button>
-      </form>
-    </section>
-    <section class="panel" aria-labelledby="studentTitle">
-      <div class="section-head"><div><p class="eyebrow">실명 없이 관리</p><h2 id="studentTitle">학생 등록</h2></div></div>
-      <form id="studentForm" class="student-form"><label>학생 코드<input id="studentCodeInput" type="text" placeholder="예: A학생, 1-01" required /></label><label>학년<input id="gradeInput" type="text" placeholder="예: 3학년" /></label><label>관찰 행동의 조작적 정의<textarea id="definitionInput" rows="4" placeholder="예: 수업 참여가 어려워지는 상황과 관찰할 참여 행동을 구체적으로 적어 주세요"></textarea></label><button class="secondary" type="submit">학생 추가</button></form>
-      <div id="studentCards" class="student-cards"></div>
-    </section>
-    <section class="panel wide" aria-labelledby="dashboardTitle">
-      <div class="section-head"><div><p class="eyebrow">해석은 신중하게</p><h2 id="dashboardTitle">관찰 결과</h2></div><div class="actions"><button id="csvButton" class="soft" type="button">CSV</button><button id="printButton" class="soft" type="button">보고서</button></div></div>
-      <div class="summary"><div><span>기록 수</span><strong id="recordCount">0</strong></div><div><span>평균 문제 행동</span><strong id="avgFrequency">0</strong></div><div><span>평균 참여 단계</span><strong id="avgEngagement">0/5</strong></div><div><span>변화 양상</span><strong id="changeRate">-</strong></div></div>
-      <p id="interpretation" class="interpretation">기록을 추가하면 관찰 기간의 수업 참여 변화 양상이 표시됩니다. 인과관계는 단정하지 않습니다.</p>
-      <div class="chart-wrap"><canvas id="trendChart" width="960" height="360" aria-label="일별 문제 행동과 수업 참여 그래프"></canvas></div>
-      <div class="insight-charts">
-        <section><h3>UDL 원리별 평균 참여</h3><p id="principleInsight" class="chart-insight">기록이 쌓이면 어떤 UDL 원리와 함께 참여가 높게 나타났는지 표시됩니다.</p><canvas id="principleChart" width="460" height="300" aria-label="UDL 원리별 평균 수업 참여 그래프"></canvas><p class="chart-note">높은 점수는 해당 원리를 선택한 관찰 기록에서 참여가 높게 나타났다는 뜻입니다.</p></section>
-        <section><h3>도구·매체별 평균 참여</h3><p id="mediaInsight" class="chart-insight">기록이 쌓이면 어떤 도구·매체와 함께 참여가 높게 나타났는지 표시됩니다.</p><canvas id="mediaChart" width="460" height="300" aria-label="도구와 매체별 평균 수업 참여 그래프"></canvas><p class="chart-note">도구의 효과를 단정하지 않고, 다음 수업 조정을 위한 참고 자료로 봅니다.</p></section>
+    <div class="brand-head">
+      <img class="brand-logo" src="icon-192.png" alt="" />
+      <div>
+        <div class="title-line"><h1>UDL로 함께 성장하는 우리</h1><span class="version-badge">v1.4.8 · 수정 92</span></div>
+        <p class="eyebrow brand-subtitle">보편적 학습 설계를 적용한 수업 참여 기록 도구</p>
       </div>
-      <div id="recordList" class="record-list"></div>
+    </div>
+    <button id="installButton" class="download-button" type="button">앱 다운로드</button>
+  </header>
+
+  <nav class="tabs" aria-label="화면 선택">
+    <button class="tab active" type="button" data-tab="record">기록</button>
+    <button class="tab" type="button" data-tab="results">결과</button>
+    <button class="tab" type="button" data-tab="manage">관리</button>
+    <button class="tab" type="button" data-tab="guide">안내</button>
+  </nav>
+
+  <main class="shell">
+    <section id="tab-record" class="tab-panel active">
+      <section class="panel record-panel">
+        <div class="section-head">
+          <div><p class="eyebrow">짧게 기록</p><h2>오늘의 관찰 기록</h2></div>
+          <button id="seedButton" class="soft" type="button">예시 자료</button>
+        </div>
+        <p class="brief-note">바쁘면 학생·과목·UDL 지원·참여 점수만 기록해도 됩니다.</p>
+        <form id="recordForm" class="record-grid">
+          <label>학생 코드<select id="studentSelect" required></select></label>
+          <label>날짜<input id="dateInput" type="date" required /></label>
+          <label>시간대<select id="periodInput"><option>1교시</option><option>2교시</option><option>3교시</option><option>4교시</option><option>5교시</option><option>6교시</option><option>방과후</option></select></label>
+          <label>과목<select id="subjectInput" required><option>국어</option><option>수학</option><option>통합교과</option><option>사회</option><option>과학</option><option>영어</option><option>미술</option><option>음악</option><option>체육</option><option>실과</option><option>창체</option><option>기타</option></select></label>
+          <label id="subjectOtherWrap" class="hidden">기타 과목<input id="subjectOtherInput" type="text" placeholder="예: 진로, 보건" /></label>
+
+          <div class="form-field-label">수업 활동 선택 <span>(발표, 쓰기, 조작활동, 신체·놀이활동 등)</span></div>
+          <details class="activity-tag-field"><summary><span class="activity-summary-label">▸ 활동</span><small id="activitySelectionSummary"></small></summary><div class="activity-tag-content"><p class="activity-tag-help">오늘 수업에서 학생이 참여한 활동을 선택해 주세요. 여러 개 선택할 수 있습니다.</p><div class="activity-tags" role="group" aria-label="수업 활동 태그 선택"><button class="activity-tag" type="button" data-tag="발표·말하기">발표·말하기</button><button class="activity-tag" type="button" data-tag="쓰기">쓰기</button><button class="activity-tag" type="button" data-tag="읽기">읽기</button><button class="activity-tag" type="button" data-tag="듣기">듣기</button><button class="activity-tag" type="button" data-tag="만들기">만들기</button><button class="activity-tag" type="button" data-tag="그리기">그리기</button><button class="activity-tag" type="button" data-tag="조작활동">조작활동</button><button class="activity-tag" type="button" data-tag="신체·놀이활동">신체·놀이활동</button><button class="activity-tag" type="button" data-tag="계산활동">계산활동</button><button class="activity-tag" type="button" data-tag="기타">기타</button></div><label id="activityOtherWrap" class="activity-other hidden">기타 활동<input id="activityOtherInput" type="text" maxlength="24" placeholder="예: 실험, 토의" /></label></div></details>
+
+          <details class="strategy-box"><summary>UDL 지원 전략</summary><div id="strategyList" class="strategy-list"></div></details>
+
+          <section class="participation-card">
+            <div><p class="eyebrow">필수 기록</p><h3>오늘의 참여 점수</h3></div>
+            <input id="engagementInput" type="hidden" required />
+            <div class="participation-options" role="group" aria-label="오늘의 참여 점수 선택">
+              <button class="participation-option" type="button" data-level="1"><span>1점</span><strong>거의 참여 못함</strong></button>
+              <button class="participation-option" type="button" data-level="2"><span>2점</span><strong>조금 참여함</strong></button>
+              <button class="participation-option" type="button" data-level="3"><span>3점</span><strong>지원을 받아 참여함</strong></button>
+              <button class="participation-option" type="button" data-level="4"><span>4점</span><strong>대부분 참여함</strong></button>
+              <button class="participation-option" type="button" data-level="5"><span>5점</span><strong>스스로 참여함</strong></button>
+            </div>
+            <details class="score-guide"><summary>▸ 점수 기준 보기</summary><div class="score-guide-body"><div><strong>1점 거의 참여 못함</strong><p>활동에 거의 접근하지 못하거나, 교사의 지속적인 개별 지원이 있어도 참여가 매우 제한됨</p></div><div><strong>2점 조금 참여함</strong><p>짧은 순간 활동에 참여하나, 대부분의 과정에서 개별 지원이나 반복적인 촉진이 필요함</p></div><div><strong>3점 지원을 받아 참여함</strong><p>교사, 또래, 보조교사 등의 안내나 시범을 받으면 주요 활동의 일부에 참여함</p></div><div><strong>4점 대부분 참여함</strong><p>약간의 안내나 중간 점검이 있으면 활동에 자주 참여하고, 참여가 일정 시간 유지됨</p></div><div><strong>5점 스스로 참여함</strong><p>활동의 대부분에 스스로 참여하며, 선택·표현·상호작용 중 일부가 주도적으로 나타남</p></div><p class="score-guide-note">참여 점수는 학생의 능력을 평가하는 점수가 아니라, 해당 수업 장면에서 어느 정도의 지원으로 참여가 가능했는지 살펴보기 위한 참고 기록입니다.</p></div></details>
+            <p id="participationError" class="form-error" role="alert"></p>
+          </section>
+
+          <details class="abc advanced-record"><summary>자세히 기록하기</summary><p class="advanced-help">필요할 때만 기록해 주세요. 입력하지 않아도 기본 기록은 저장됩니다.</p><label>수업 참여가 어려웠던 순간<select id="difficultyLevelInput"><option value="0">없었음</option><option value="1">1회</option><option value="3">2~3회</option><option value="many">여러 번</option></select><small class="hint">예: 활동 전환, 발표 차례, 쓰기 시작, 모둠 소음, 과제 설명 직후</small></label><label id="difficultyExactWrap" class="hidden">정확한 횟수<input id="difficultyExactInput" type="number" min="4" placeholder="예: 5" /></label><input id="frequencyInput" type="hidden" value="0" /><label>선행사건<input id="antecedentInput" type="text" placeholder="예: 과제 제시, 활동 전환, 교사의 지시, 친구의 말, 소음, 자리 변화" /></label><label>관찰된 참여 모습<input id="behaviorInput" type="text" placeholder="예: 과제 시작, 도움 요청, 그림카드 선택, 또래 모방, 자리 이탈, 발표 시도" /></label><label>결과<input id="consequenceInput" type="text" placeholder="예: 시각 단서 제공 후 과제 시작, 또래 시범 후 참여, 휴식 후 복귀, 선택지 제공 후 응답" /></label></details>
+          <button class="primary" type="submit">기록 저장</button>
+        </form>
+      </section>
     </section>
-    <section class="panel danger-zone"><h2>자료 관리</h2><p>학생 실명, 장애명, 연락처는 입력하지 않는 것을 권장합니다. 실제 학생 자료는 학교 지침을 확인한 뒤 사용하세요.</p><div class="backup-actions"><button id="backupButton" class="soft" type="button">백업 저장</button><label class="file-button">백업 불러오기<input id="restoreInput" type="file" accept="application/json,.json" /></label></div><button id="clearButton" class="danger" type="button">내 기기 기록 전체 삭제</button></section>
+
+    <section id="tab-results" class="tab-panel">
+      <section class="panel wide results-panel">
+        <div class="section-head"><div><p class="eyebrow">학생별 흐름과 다음 수업 조정</p><h2>관찰 결과</h2></div><div class="actions"><button id="csvButton" class="soft" type="button">CSV</button><button id="printButton" class="soft" type="button">보고서</button></div></div>
+        <label class="result-filter">학생 선택<select id="resultStudentSelect"><option value="all">전체 학생 요약</option></select></label>
+        <section class="result-example-box"><div><strong>예시 자료</strong><span>결과 화면을 먼저 살펴보고 싶을 때만 사용해 주세요.</span></div><div class="example-actions"><button id="resultExampleButton" class="soft" type="button">예시 넣기</button><button id="clearExampleButton" class="ghost" type="button">예시 지우기</button></div></section>
+
+        <section id="allSummary" class="result-mode hidden"><div class="summary all-summary-grid"><button class="summary-card summary-toggle" type="button" data-group="weekly"><span>이번 주 기록 학생</span><strong id="weeklyStudentCount">0명</strong><small>최근 7일 기록 기준</small></button><button class="summary-card summary-toggle up" type="button" data-group="up"><span>참여가 높아진 학생</span><strong id="improvedStudentCount">0명</strong><small>최근 흐름 기준</small></button><button class="summary-card summary-toggle same" type="button" data-group="same"><span>비슷하게 유지된 학생</span><strong id="steadyStudentCount">0명</strong><small>최근 흐름 기준</small></button><button class="summary-card summary-toggle watch" type="button" data-group="watch"><span>최근 흐름을 더 살펴볼 학생</span><strong id="watchStudentCount">0명</strong><small>최근 흐름을 다시 확인할 학생</small></button></div><div id="summaryStudentList" class="student-summary-list hidden"></div></section>
+
+        <section id="individualResults" class="result-mode student-flow udl-first-results">
+          <p class="result-intro">이 화면은 UDL 원리와 지원에 따른 참여 흐름을 우선적으로 살펴보도록 구성합니다. 과목, 활동, 날짜별 기록 등 상세 맥락은 필요할 때 펼쳐서 확인할 수 있습니다.</p>
+          <section class="result-section chart-section visible-chart-section"><h3>날짜별 참여 변화 <span class="section-subtitle">최근 2주</span></h3><div class="chart-wrap"><canvas id="trendChart" width="960" height="320" aria-label="날짜별 참여 점수 변화 그래프"></canvas></div><p id="trendInterpretation" class="chart-note">점을 클릭하거나 터치하면 해당 기록의 맥락을 볼 수 있습니다.</p><div id="chartDetail" class="chart-detail hidden"></div></section>
+            
+          <section class="result-section first-section"><h3>핵심 요약</h3><div id="recentFlowCards" class="summary result-summary flow-summary"></div></section>
+          <section class="result-section udl-review-section"><h3>UDL 중심 보기</h3><div id="udlReviewGrid" class="udl-review-grid udl-priority-grid">
+            <article class="summary-card accent-card accent-purple principle-card"><span>UDL 원리별 기록 흐름</span><div id="principleUsage" class="principle-mini-grid compact-principles"></div></article>
+            <article id="topSupportCard" class="summary-card accent-card accent-green udl-detail-card"><span>높은 참여 기록에서 함께 나타난 UDL 지원</span><div id="topSupport" class="compact-rank-list"></div><small>4~5점 기록에서 함께 선택된 지원입니다.</small></article>
+            <article id="lowActivityCard" class="summary-card accent-card accent-orange udl-detail-card"><span>참여가 낮았던 기록의 UDL 또는 수업 맥락</span><div id="lowActivity" class="compact-rank-list"></div><small>1~2점 기록에서 함께 나타난 지원과 활동입니다.</small></article>
+          </div></section>
+          <details id="contextDetails" class="result-section details-section context-details"><summary>상세 수업 맥락 보기</summary>
+            <section><div class="section-row"><h3>최근 5회 기록 요약</h3><button id="toggleAllRecordsButton" class="soft hidden" type="button">전체 기록 보기</button></div><div id="recordList" class="record-list compact-list"></div></section>
+            <details class="context-analysis-box"><summary>기록 종합 분석 보기</summary><div id="contextAnalysis" class="context-analysis"></div></details>
+            <section class="context-summary strengths-summary"><h3>학생의 강점으로 보인 장면</h3><div class="context-grid strengths-grid"><article class="strength-card"><h4>강점으로 보인 과목</h4><div id="subjectSummaryList" class="strength-list"></div></article><article class="strength-card"><h4>강점으로 보인 활동</h4><div id="activitySummaryList" class="strength-list"></div></article></div><p class="strength-note">관찰 기간 동안 비교적 높은 참여가 나타난 과목과 활동입니다. 학생의 고정된 능력을 의미하지 않으며, 수업 장면을 돌아보기 위한 참고 자료입니다.</p></section>
+          </details>
+          
+          <details class="result-section details-section interpretation"><summary>해석 안내</summary><div class="interpretation-body"><p>이 앱은 학생을 평가하거나 진단하기 위한 도구가 아니라, UDL 지원을 적용한 수업 장면에서 학생의 참여 흐름을 돌아보기 위한 참고 기록 도구입니다.</p><h4>이 앱으로 살펴볼 수 있는 것</h4><ul><li>최근 참여 점수가 상승·유지·하락하는 흐름</li><li>UDL 원리별 지원이 선택된 기록에서 나타난 참여 점수</li><li>높은 참여 기록에서 함께 나타난 UDL 지원</li><li>자주 기록된 UDL 지원 전략</li><li>참여가 낮았던 기록에서 함께 나타난 수업 맥락</li><li>특정 과목이나 활동에서 비교적 참여가 잘 나타난 장면</li><li>다음 수업에서 유지하거나 조정해 볼 지원 방향</li></ul><h4>주의할 점</h4><p>기록 결과는 학생의 능력이나 태도를 평가하는 자료가 아닙니다. 또한 UDL 지원과 참여 변화 사이의 인과관계를 단정하지 않습니다. 과목, 활동 유형, 시간대, 학생 컨디션, 또래 관계, 수업 환경 등을 함께 고려해 조심스럽게 해석해 주세요.</p><p class="interpretation-final">결과는 “무엇이 효과였다”를 확정하기보다, “어떤 지원과 수업 장면에서 참여가 어떻게 나타났는지”를 돌아보기 위한 자료입니다.</p></div></details>
+        </section>
+      </section>
+    </section>
+
+    <section id="tab-manage" class="tab-panel">
+      <section class="panel manage-grid"><div><div class="section-head"><div><p class="eyebrow">실명 없이 관리</p><h2>학생 등록</h2></div></div><form id="studentForm" class="student-form"><label>학생 코드<input id="studentCodeInput" type="text" placeholder="예: A학생, 1-01" required /></label><label>학년<input id="gradeInput" type="text" placeholder="예: 3학년" /></label><label>학생 특성<textarea id="definitionInput" rows="4" placeholder="선호 활동, 의사소통 방법, 지원이 필요한 상황 등을 간단히 적어 주세요."></textarea><small class="hint">학생 코드로 관리해 주세요. 실명·장애명·연락처는 입력하지 않는 것을 권장합니다.</small></label><button class="secondary" type="submit">학생 추가</button></form><div class="subsection-title student-list-title">등록된 학생</div><div id="studentCards" class="student-cards"></div></div><section class="danger-zone"><h2>자료 관리</h2><p>기록은 이 기기에 저장됩니다. 필요할 경우 백업 파일로 따로 보관해 주세요.</p><div class="backup-actions"><button id="backupButton" class="soft" type="button">백업 저장</button><label class="file-button">백업 불러오기<input id="restoreInput" type="file" accept="application/json,.json" /></label></div><button id="clearButton" class="danger" type="button">이 기기 기록 전체 삭제</button></section></section>
+    </section>
+
+    <section id="tab-guide" class="tab-panel">
+      <section class="panel guide-panel">
+        <section class="guide-hero" aria-label="앱 소개">
+          <div class="guide-hero-content">
+            <img class="guide-hero-icon" src="icon-192.png" alt="" />
+            <div>
+              <p class="eyebrow">앱 안내</p>
+              <h2>UDL로 함께 성장하는 우리</h2>
+              <div class="hero-quotes">
+                <p class="hero-quote">&quot;우리는 다양한 배움의 방식이 존중되는 수업을 실천합니다&quot;</p>
+                <p class="hero-translation">(We practice instruction that respects diverse ways of learning.)</p>
+                <p class="hero-quote">&quot;우리는 참여의 장벽을 줄이고, 학생의 가능성을 함께 탐구합니다&quot;</p>
+                <p class="hero-translation">(We reduce barriers to participation and explore each student's possibilities together.)</p>
+              </div>
+              <p class="hero-small">UDL 지원 적용 후 학생의 수업 참여 흐름을 기록하고 돌아보기 위한 교사용 앱입니다.</p>
+            </div>
+          </div>
+          <img class="guide-hero-mark" src="icon-512.png" alt="" />
+        </section>
+
+        <div class="section-head guide-heading">
+          <div>
+            <p class="eyebrow">목적과 사용 흐름</p>
+            <h2>앱 안내</h2>
+          </div>
+        </div>
+
+        <div class="guide-overview-grid">
+          <article class="guide-info-card">
+            <span class="guide-label">Purpose</span>
+            <h3>이 앱은 무엇을 위한 도구인가</h3>
+            <p>이 앱은 UDL 지원을 적용한 수업 장면에서 학생의 참여 흐름을 기록하고 돌아보기 위한 교사용 관찰·성찰 도구입니다. 학생을 평가하거나 진단하기보다, 어떤 수업 지원과 활동 장면에서 참여가 어떻게 나타났는지 살펴보고 다음 수업을 조정하는 데 목적이 있습니다.</p>
+          </article>
+
+          <article class="guide-info-card">
+            <span class="guide-label">Student</span>
+            <h3>어떤 학생에게 사용할 수 있는가</h3>
+            <p>특수교육대상학생에게만 사용하는 앱이 아니라, 통합학급과 특수교육 장면에서 수업 참여에 추가 지원이 필요한 학생에게 활용할 수 있습니다. 장애 여부보다 “수업 참여를 돕기 위해 관찰이 필요한가”를 기준으로 학생을 선택해 주세요.</p>
+          </article>
+
+          <article class="guide-info-card guide-large-card">
+            <span class="guide-label">Record</span>
+            <h3>어떻게 기록하면 되는가</h3>
+            <p>바쁠 때는 학생 코드, 과목, UDL 지원 전략, 참여 점수만 기록해도 됩니다. 시간이 있을 때는 수업 활동 태그와 자세한 기록을 추가해 주세요. 기록은 많이 쓰는 것보다 같은 기준으로 꾸준히 남기는 것이 중요합니다.</p>
+            <div class="guide-flow">
+              <h4>간단한 사용 흐름</h4>
+              <ol>
+                <li>학생 코드를 선택합니다.</li>
+                <li>날짜, 시간대, 과목을 선택합니다.</li>
+                <li>적용한 UDL 지원 전략을 선택합니다.</li>
+                <li>참여 점수를 기록합니다.</li>
+                <li>필요할 때 수업 활동이나 자세한 기록을 추가합니다.</li>
+                <li>결과 탭에서 참여 흐름과 UDL 지원 기록을 확인합니다.</li>
+              </ol>
+            </div>
+          </article>
+
+          <article class="guide-info-card guide-large-card">
+            <span class="guide-label">Interpretation</span>
+            <h3>결과는 어떻게 해석하는가</h3>
+            <p>결과는 평가나 진단이 아니라 수업 조정을 위한 참고 기록입니다. UDL 지원과 참여 변화 사이의 인과관계를 단정하지 않으며, 과목, 활동 유형, 시간대, 학생 컨디션, 또래 관계, 수업 환경을 함께 고려해 해석해 주세요.</p>
+            <div class="guide-flow">
+              <h4>이 앱으로 볼 수 있는 것</h4>
+              <ul>
+                <li>최근 참여 흐름이 상승·유지·하락하는지</li>
+                <li>어떤 UDL 원리와 지원이 자주 기록되었는지</li>
+                <li>높은 참여 기록에서 어떤 UDL 지원이 함께 나타났는지</li>
+                <li>참여가 낮았던 기록에서 어떤 수업 맥락이 함께 보였는지</li>
+                <li>다음 수업에서 유지하거나 조정해 볼 지원은 무엇인지</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <p class="guide-privacy-note">학생 실명, 장애명, 연락처 등 민감정보는 입력하지 않는 것을 권장합니다. 학생 코드를 사용해 주세요.</p>
+        <p class="guide-footer-signature">curated by oildong</p>
+      </section>
+    </section>
   </main>
-  <script src="app.js?v=21"></script>
+  <script>
+    window.addEventListener('error', event => {
+      const box = document.createElement('pre');
+      box.style.cssText = 'position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;white-space:pre-wrap;background:#351722;color:#fff;border:1px solid #ff8077;border-radius:12px;padding:12px;font:14px/1.4 Arial,sans-serif;';
+      box.textContent = '앱 실행 중 오류가 났습니다: ' + event.message;
+      document.body.appendChild(box);
+    });
+    if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(list => list.forEach(reg => reg.unregister())).catch(() => {});
+    if (window.caches) caches.keys().then(keys => keys.forEach(key => caches.delete(key))).catch(() => {});
+  </script>
+  <script src="app.js?v=92"></script>
 </body>
 </html>
