@@ -224,3 +224,16 @@
 .student-empty-state p{margin:7px auto 0;max-width:480px;color:#aeb8ca;font-size:.86rem;line-height:1.5;}
 button:disabled,select:disabled{cursor:not-allowed;opacity:.55;}
 @media(max-width:560px){.student-list-section{padding:14px}.student-list-head{align-items:flex-start}.student-count-badge{min-width:44px}}
+
+/* v2.0 print only the active results view. */
+@media print{
+  .topbar,.tabs,.actions,.record-panel,.manage-grid,.danger-zone{display:none!important}
+  .shell{width:100%;padding:0}
+  .panel{box-shadow:none;border:0}
+  .tab-panel{display:none!important}
+  .tab-panel.active{display:block!important}
+  .results-panel{background:#fff;color:#111}
+  .results-panel *{color:#111!important;box-shadow:none!important}
+  .chart-wrap,.summary-card,.record,.udl-review-grid article,.details-section{border-color:#b8bec8!important;background:#fff!important}
+  .interpretation,.summary-card,.record,.chart-wrap{break-inside:avoid}
+}

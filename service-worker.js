@@ -1,5 +1,5 @@
-const CACHE_NAME='udl-growth-v2-100';
-const APP_SHELL=['./','./index.html','./styles.css?v=100','./app.js?v=100','./manifest.webmanifest?v=100','./icon-192.png','./icon-512.png'];
+const CACHE_NAME='udl-growth-v2-101';
+const APP_SHELL=['./','./index.html','./styles.css?v=101','./app.js?v=101','./manifest.webmanifest?v=101','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(APP_SHELL)).then(()=>self.skipWaiting()));
