@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0d1424" />
   <title>UDL 참여 관찰 기록</title>
-  <link rel="manifest" href="manifest.webmanifest?v=101" />
+  <link rel="manifest" href="manifest.webmanifest?v=106" />
   <link rel="apple-touch-icon" href="icon-192.png" />
-  <link rel="stylesheet" href="styles.css?v=101" />
+  <link rel="stylesheet" href="styles.css?v=106" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand-head">
       <img class="brand-logo" src="icon-192.png" alt="" />
       <div>
-        <div class="title-line"><h1>UDL로 함께 성장하는 우리</h1><span class="version-badge">v2.0 · 수정 101</span></div>
+        <div class="title-line"><h1>UDL로 함께 성장하는 우리</h1><span class="version-badge">v2.0 · 수정 106</span></div>
         <p class="eyebrow brand-subtitle">보편적 학습 설계를 적용한 수업 참여 기록 도구</p>
       </div>
     </div>
@@ -77,10 +77,23 @@
 
         <section id="individualResults" class="result-mode student-flow udl-first-results">
           <p class="result-intro">이 화면은 UDL 원리와 지원에 따른 참여 흐름을 우선적으로 살펴보도록 구성합니다. 과목, 활동, 날짜별 기록 등 상세 맥락은 필요할 때 펼쳐서 확인할 수 있습니다.</p>
-          <section class="result-section chart-section visible-chart-section"><h3>날짜별 참여 변화 <span class="section-subtitle">최근 2주</span></h3><div class="chart-wrap"><canvas id="trendChart" width="960" height="320" aria-label="날짜별 참여 점수 변화 그래프"></canvas></div><p id="trendInterpretation" class="chart-note">점을 클릭하거나 터치하면 해당 기록의 맥락을 볼 수 있습니다.</p><div id="chartDetail" class="chart-detail hidden"></div></section>
+          <section class="result-section chart-section visible-chart-section">
+            <div class="period-section-head">
+              <h3>날짜별 참여 변화</h3>
+              <div class="period-tabs" role="tablist" aria-label="결과 분석 기간 선택">
+                <button class="period-tab active" type="button" role="tab" aria-selected="true" data-period="2weeks">최근 2주</button>
+                <button class="period-tab" type="button" role="tab" aria-selected="false" data-period="1month">최근 1개월</button>
+                <button class="period-tab" type="button" role="tab" aria-selected="false" data-period="all">전체 기록</button>
+              </div>
+            </div>
+            <p id="periodDescription" class="period-description">최근 2주 기록을 기준으로 참여 흐름과 UDL 지원을 정리했습니다.</p>
+            <div class="chart-wrap"><canvas id="trendChart" width="960" height="320" aria-label="날짜별 참여 점수 변화 그래프"></canvas></div>
+            <p id="trendInterpretation" class="chart-note">점을 클릭하거나 터치하면 해당 기록의 맥락을 볼 수 있습니다.</p>
+            <div id="chartDetail" class="chart-detail hidden"></div>
+          </section>
             
-          <section class="result-section first-section"><h3>핵심 요약</h3><div id="recentFlowCards" class="summary result-summary flow-summary"></div></section>
-          <section class="result-section udl-review-section"><h3>UDL 중심 보기</h3><div id="udlReviewGrid" class="udl-review-grid udl-priority-grid">
+          <section class="result-section first-section"><h3 class="analysis-title">핵심 요약 <span id="corePeriodBadge" class="period-badge">최근 2주 기준</span></h3><div id="recentFlowCards" class="summary result-summary flow-summary"></div></section>
+          <section class="result-section udl-review-section"><h3 class="analysis-title">UDL 중심 보기 <span id="udlPeriodBadge" class="period-badge">최근 2주 기준</span></h3><p id="udlPeriodEmpty" class="period-empty-note hidden">선택한 기간에 기록이 없습니다. 다른 기간을 선택하거나 새 기록을 추가해 주세요.</p><div id="udlReviewGrid" class="udl-review-grid udl-priority-grid">
             <article class="summary-card accent-card accent-purple principle-card"><span>UDL 원리별 기록 흐름</span><div id="principleUsage" class="principle-mini-grid compact-principles"></div></article>
             <article id="topSupportCard" class="summary-card accent-card accent-green udl-detail-card"><span>높은 참여 기록에서 함께 나타난 UDL 지원</span><div id="topSupport" class="compact-rank-list"></div><small>4~5점 기록에서 함께 선택된 지원입니다.</small></article>
             <article id="lowActivityCard" class="summary-card accent-card accent-orange udl-detail-card"><span>참여가 낮았던 기록의 UDL 또는 수업 맥락</span><div id="lowActivity" class="compact-rank-list"></div><small>1~2점 기록에서 함께 나타난 지원과 활동입니다.</small></article>
@@ -227,6 +240,6 @@
       window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
     }
   </script>
-  <script src="app.js?v=101"></script>
+  <script src="app.js?v=106"></script>
 </body>
 </html>
