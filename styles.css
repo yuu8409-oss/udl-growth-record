@@ -193,3 +193,34 @@
 /* v1.4.8 guide footer signature. */
 .guide-footer-signature{margin:-4px 4px 0;color:rgba(185,197,216,.42);font-size:.76rem;font-weight:800;line-height:1.4;text-align:right;letter-spacing:.01em;}
 @media(max-width:560px){.guide-footer-signature{text-align:center;margin-top:-2px}}
+
+/* v2.0 guide install and share panel. */
+.guide-install{border:1px solid rgba(59,75,104,.78);border-left:3px solid rgba(121,174,252,.72);border-radius:16px;background:#111b2d;padding:18px;display:grid;grid-template-columns:minmax(220px,.9fr) minmax(340px,1.4fr);gap:16px 24px;align-items:start;}
+.guide-install h3{margin:8px 0 6px;color:#fff;font-size:1.08rem;}
+.guide-install p{margin:0;color:#cbd6e8;font-size:.9rem;line-height:1.5;}
+.guide-install-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+.guide-install-steps p{min-height:82px;padding:11px 12px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.035);}
+.guide-install-steps strong,.guide-install-steps span{display:block;}
+.guide-install-steps strong{margin-bottom:5px;color:#f5f8ff;}
+.guide-install-steps span{color:#b9c6d9;font-size:.84rem;line-height:1.45;}
+.guide-share-row{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 10px;align-items:center;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);}
+.guide-share-row a{min-width:0;color:#a9c9ff;font-size:.88rem;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.guide-copy-button{min-height:42px;padding-inline:16px;}
+.guide-copy-status{grid-column:1/-1;min-height:18px;color:#9fe7b2;font-size:.78rem;font-weight:800;}
+@media(max-width:880px){.guide-install{grid-template-columns:1fr}.guide-install-steps{grid-template-columns:1fr}.guide-share-row{grid-column:1}.guide-install-steps p{min-height:0}}
+@media(max-width:560px){.guide-share-row{grid-template-columns:1fr}.guide-copy-button{width:100%}}
+
+/* v2.0 student management layout. */
+.student-management{min-width:0;}
+.student-form .student-privacy-note{margin:0;padding:11px 13px;border:1px solid rgba(159,176,200,.25);border-left:3px solid rgba(121,174,252,.66);border-radius:12px;background:#10192a;color:#b9c5d8;font-size:.82rem;line-height:1.5;}
+.student-form-error{min-height:20px;margin:-6px 0 -4px;color:var(--danger);font-size:.84rem;line-height:1.4;}
+.student-list-section{margin-top:40px;border:1px solid rgba(59,75,104,.82);border-radius:16px;background:#10192a;padding:17px;}
+.student-list-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:13px;border-bottom:1px solid rgba(255,255,255,.08);}
+.student-list-head h3{margin:0;}
+.student-count-badge{display:inline-flex;align-items:center;justify-content:center;min-width:48px;min-height:30px;padding:4px 10px;border:1px solid rgba(84,209,122,.3);border-radius:999px;background:rgba(84,209,122,.12);color:#a7f2ba;font-size:.8rem;font-weight:900;}
+.student-list-section .student-cards{margin-top:14px;gap:12px;}
+.student-empty-state{padding:22px;border:1px dashed rgba(159,176,200,.32);border-radius:14px;background:rgba(255,255,255,.025);text-align:center;}
+.student-empty-state strong{display:block;color:#eef4ff;font-size:.98rem;line-height:1.4;}
+.student-empty-state p{margin:7px auto 0;max-width:480px;color:#aeb8ca;font-size:.86rem;line-height:1.5;}
+button:disabled,select:disabled{cursor:not-allowed;opacity:.55;}
+@media(max-width:560px){.student-list-section{padding:14px}.student-list-head{align-items:flex-start}.student-count-badge{min-width:44px}}

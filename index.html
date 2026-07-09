@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0d1424" />
   <title>UDL 참여 관찰 기록</title>
-  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="manifest" href="manifest.webmanifest?v=100" />
   <link rel="apple-touch-icon" href="icon-192.png" />
-  <link rel="stylesheet" href="styles.css?v=92" />
+  <link rel="stylesheet" href="styles.css?v=100" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand-head">
       <img class="brand-logo" src="icon-192.png" alt="" />
       <div>
-        <div class="title-line"><h1>UDL로 함께 성장하는 우리</h1><span class="version-badge">v1.4.8 · 수정 92</span></div>
+        <div class="title-line"><h1>UDL로 함께 성장하는 우리</h1><span class="version-badge">v2.0 · 수정 100</span></div>
         <p class="eyebrow brand-subtitle">보편적 학습 설계를 적용한 수업 참여 기록 도구</p>
       </div>
     </div>
@@ -33,7 +33,6 @@
       <section class="panel record-panel">
         <div class="section-head">
           <div><p class="eyebrow">짧게 기록</p><h2>오늘의 관찰 기록</h2></div>
-          <button id="seedButton" class="soft" type="button">예시 자료</button>
         </div>
         <p class="brief-note">바쁘면 학생·과목·UDL 지원·참여 점수만 기록해도 됩니다.</p>
         <form id="recordForm" class="record-grid">
@@ -54,16 +53,16 @@
             <div class="participation-options" role="group" aria-label="오늘의 참여 점수 선택">
               <button class="participation-option" type="button" data-level="1"><span>1점</span><strong>거의 참여 못함</strong></button>
               <button class="participation-option" type="button" data-level="2"><span>2점</span><strong>조금 참여함</strong></button>
-              <button class="participation-option" type="button" data-level="3"><span>3점</span><strong>지원을 받아 참여함</strong></button>
+              <button class="participation-option" type="button" data-level="3"><span>3점</span><strong>지원 시 참여 유지</strong></button>
               <button class="participation-option" type="button" data-level="4"><span>4점</span><strong>대부분 참여함</strong></button>
               <button class="participation-option" type="button" data-level="5"><span>5점</span><strong>스스로 참여함</strong></button>
             </div>
-            <details class="score-guide"><summary>▸ 점수 기준 보기</summary><div class="score-guide-body"><div><strong>1점 거의 참여 못함</strong><p>활동에 거의 접근하지 못하거나, 교사의 지속적인 개별 지원이 있어도 참여가 매우 제한됨</p></div><div><strong>2점 조금 참여함</strong><p>짧은 순간 활동에 참여하나, 대부분의 과정에서 개별 지원이나 반복적인 촉진이 필요함</p></div><div><strong>3점 지원을 받아 참여함</strong><p>교사, 또래, 보조교사 등의 안내나 시범을 받으면 주요 활동의 일부에 참여함</p></div><div><strong>4점 대부분 참여함</strong><p>약간의 안내나 중간 점검이 있으면 활동에 자주 참여하고, 참여가 일정 시간 유지됨</p></div><div><strong>5점 스스로 참여함</strong><p>활동의 대부분에 스스로 참여하며, 선택·표현·상호작용 중 일부가 주도적으로 나타남</p></div><p class="score-guide-note">참여 점수는 학생의 능력을 평가하는 점수가 아니라, 해당 수업 장면에서 어느 정도의 지원으로 참여가 가능했는지 살펴보기 위한 참고 기록입니다.</p></div></details>
+            <details class="score-guide"><summary>▸ 점수 기준 보기</summary><div class="score-guide-body"><div><strong>1점 거의 참여 못함</strong><p>활동에 거의 접근하지 못하거나, 교사의 지속적인 개별 지원이 있어도 참여가 매우 제한됨</p></div><div><strong>2점 조금 참여함</strong><p>짧은 순간 활동에 참여하나, 대부분의 과정에서 개별 지원이나 반복적인 촉진이 필요함</p></div><div><strong>3점 지원을 받아 참여 유지함</strong><p>교사, 또래, 보조교사 등의 안내·시범·촉진을 받으면 주요 활동 참여가 이어짐</p></div><div><strong>4점 대부분 참여함</strong><p>약간의 안내나 지원만으로 활동 대부분에 참여하려는 모습이 안정적으로 나타남</p></div><div><strong>5점 스스로 참여함</strong><p>활동의 대부분에 스스로 참여하며, 선택·표현·상호작용 중 일부가 주도적으로 나타남</p></div><p class="score-guide-note">참여 점수는 학생의 능력을 평가하는 점수가 아니라, 해당 수업 장면에서 어느 정도의 지원으로 참여가 가능했는지 살펴보기 위한 참고 기록입니다.</p></div></details>
             <p id="participationError" class="form-error" role="alert"></p>
           </section>
 
           <details class="abc advanced-record"><summary>자세히 기록하기</summary><p class="advanced-help">필요할 때만 기록해 주세요. 입력하지 않아도 기본 기록은 저장됩니다.</p><label>수업 참여가 어려웠던 순간<select id="difficultyLevelInput"><option value="0">없었음</option><option value="1">1회</option><option value="3">2~3회</option><option value="many">여러 번</option></select><small class="hint">예: 활동 전환, 발표 차례, 쓰기 시작, 모둠 소음, 과제 설명 직후</small></label><label id="difficultyExactWrap" class="hidden">정확한 횟수<input id="difficultyExactInput" type="number" min="4" placeholder="예: 5" /></label><input id="frequencyInput" type="hidden" value="0" /><label>선행사건<input id="antecedentInput" type="text" placeholder="예: 과제 제시, 활동 전환, 교사의 지시, 친구의 말, 소음, 자리 변화" /></label><label>관찰된 참여 모습<input id="behaviorInput" type="text" placeholder="예: 과제 시작, 도움 요청, 그림카드 선택, 또래 모방, 자리 이탈, 발표 시도" /></label><label>결과<input id="consequenceInput" type="text" placeholder="예: 시각 단서 제공 후 과제 시작, 또래 시범 후 참여, 휴식 후 복귀, 선택지 제공 후 응답" /></label></details>
-          <button class="primary" type="submit">기록 저장</button>
+          <button id="recordSaveButton" class="primary" type="submit">기록 저장</button>
         </form>
       </section>
     </section>
@@ -98,7 +97,27 @@
     </section>
 
     <section id="tab-manage" class="tab-panel">
-      <section class="panel manage-grid"><div><div class="section-head"><div><p class="eyebrow">실명 없이 관리</p><h2>학생 등록</h2></div></div><form id="studentForm" class="student-form"><label>학생 코드<input id="studentCodeInput" type="text" placeholder="예: A학생, 1-01" required /></label><label>학년<input id="gradeInput" type="text" placeholder="예: 3학년" /></label><label>학생 특성<textarea id="definitionInput" rows="4" placeholder="선호 활동, 의사소통 방법, 지원이 필요한 상황 등을 간단히 적어 주세요."></textarea><small class="hint">학생 코드로 관리해 주세요. 실명·장애명·연락처는 입력하지 않는 것을 권장합니다.</small></label><button class="secondary" type="submit">학생 추가</button></form><div class="subsection-title student-list-title">등록된 학생</div><div id="studentCards" class="student-cards"></div></div><section class="danger-zone"><h2>자료 관리</h2><p>기록은 이 기기에 저장됩니다. 필요할 경우 백업 파일로 따로 보관해 주세요.</p><div class="backup-actions"><button id="backupButton" class="soft" type="button">백업 저장</button><label class="file-button">백업 불러오기<input id="restoreInput" type="file" accept="application/json,.json" /></label></div><button id="clearButton" class="danger" type="button">이 기기 기록 전체 삭제</button></section></section>
+      <section class="panel manage-grid">
+        <div class="student-management">
+          <div class="section-head"><div><p class="eyebrow">실명 없이 관리</p><h2>학생 등록</h2></div></div>
+          <form id="studentForm" class="student-form" novalidate>
+            <label>학생 코드<input id="studentCodeInput" type="text" placeholder="예: A학생, 1-01" required /></label>
+            <label>학년<input id="gradeInput" type="text" placeholder="예: 3학년" /></label>
+            <label>학생 특성<textarea id="definitionInput" rows="4" placeholder="선호 활동, 의사소통 방법, 지원이 필요한 상황 등을 간단히 적어 주세요."></textarea></label>
+            <p class="student-privacy-note">학생 코드로 관리해 주세요. 실명·장애명·연락처는 입력하지 않는 것을 권장합니다.</p>
+            <p id="studentFormError" class="student-form-error" role="alert"></p>
+            <button class="secondary" type="submit">학생 추가</button>
+          </form>
+          <section class="student-list-section" aria-labelledby="studentListTitle">
+            <div class="student-list-head">
+              <div><p class="eyebrow">기록 대상</p><h3 id="studentListTitle">관찰 대상 학생 목록</h3></div>
+              <span id="studentCountBadge" class="student-count-badge">0명</span>
+            </div>
+            <div id="studentCards" class="student-cards"></div>
+          </section>
+        </div>
+        <section class="danger-zone"><h2>자료 관리</h2><p>기록은 이 기기에 저장됩니다. 필요할 경우 백업 파일로 따로 보관해 주세요.</p><div class="backup-actions"><button id="backupButton" class="soft" type="button">백업 저장</button><label class="file-button">백업 불러오기<input id="restoreInput" type="file" accept="application/json,.json" /></label></div><button id="clearButton" class="danger" type="button">이 기기 기록 전체 삭제</button></section>
+      </section>
     </section>
 
     <section id="tab-guide" class="tab-panel">
@@ -175,6 +194,23 @@
           </article>
         </div>
 
+        <section class="guide-install" aria-labelledby="guideInstallTitle">
+          <div class="guide-install-copy">
+            <span class="guide-label">Install</span>
+            <h3 id="guideInstallTitle">앱 설치 및 공유</h3>
+            <p>아래 링크로 접속한 뒤 브라우저의 설치 기능을 이용하면 홈 화면이나 바탕화면에서 앱처럼 사용할 수 있습니다.</p>
+          </div>
+          <div class="guide-install-steps">
+            <p><strong>Android·PC</strong><span>Chrome 또는 Edge에서 상단의 ‘앱 다운로드’를 누른 뒤 설치를 선택합니다.</span></p>
+            <p><strong>iPhone·iPad</strong><span>Safari의 공유 버튼을 누르고 ‘홈 화면에 추가’를 선택합니다.</span></p>
+          </div>
+          <div class="guide-share-row">
+            <a id="publicAppLink" href="https://yuu8409-oss.github.io/udl-growth-record/" target="_blank" rel="noopener">yuu8409-oss.github.io/udl-growth-record</a>
+            <button id="copyAppLinkButton" class="soft guide-copy-button" type="button">링크 복사</button>
+            <span id="copyAppLinkStatus" class="guide-copy-status" role="status" aria-live="polite"></span>
+          </div>
+        </section>
+
         <p class="guide-privacy-note">학생 실명, 장애명, 연락처 등 민감정보는 입력하지 않는 것을 권장합니다. 학생 코드를 사용해 주세요.</p>
         <p class="guide-footer-signature">curated by oildong</p>
       </section>
@@ -187,9 +223,10 @@
       box.textContent = '앱 실행 중 오류가 났습니다: ' + event.message;
       document.body.appendChild(box);
     });
-    if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(list => list.forEach(reg => reg.unregister())).catch(() => {});
-    if (window.caches) caches.keys().then(keys => keys.forEach(key => caches.delete(key))).catch(() => {});
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
+    }
   </script>
-  <script src="app.js?v=92"></script>
+  <script src="app.js?v=100"></script>
 </body>
 </html>
