@@ -1,15 +1,16 @@
-const CACHE_NAME = 'udl-growth-v2-114';
-const INDEX_URL = './index.html?v=114';
+const CACHE_NAME = 'udl-growth-v2-118';
+const INDEX_URL = './index.html?v=118';
 const APP_SHELL = [
   './',
   './index.html',
   INDEX_URL,
-  './styles.css?v=114',
-  './app.js?v=114',
-  './manifest.webmanifest?v=114',
+  './styles.css?v=118',
+  './app.js?v=118',
+  './manifest.webmanifest?v=118',
   './icon-192.png',
   './icon-512.png',
-  './icon.ico'
+  './icon.ico',
+  './UDL-app-download.zip'
 ];
 
 async function cacheAppShell() {

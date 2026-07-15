@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0d1424" />
   <title>UDL 참여 관찰 기록</title>
-  <link rel="manifest" href="manifest.webmanifest?v=114" />
+  <link rel="manifest" href="manifest.webmanifest?v=118" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <link rel="icon" href="icon.ico" />
-  <link rel="stylesheet" href="styles.css?v=114" />
+  <link rel="stylesheet" href="styles.css?v=118" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand-head">
       <img class="brand-logo" src="icon-192.png" alt="" />
       <div>
-        <div class="title-line"><h1>UDL로 함께 성장하는 우리</h1><span class="version-badge">v2.0 · 수정 114</span></div>
+        <div class="title-line"><h1>UDL로 함께 성장하는 우리</h1><span class="version-badge">v2.0 · 수정 118</span></div>
         <p class="eyebrow brand-subtitle">보편적 학습 설계를 적용한 수업 참여 기록 도구</p>
       </div>
     </div>
@@ -215,21 +215,35 @@
           <div class="guide-install-copy">
             <span class="guide-label">Install</span>
             <h3 id="guideInstallTitle">앱 설치 및 공유</h3>
-            <p>PC에서는 앱 바로가기 파일을 내려받아 바탕화면에 두고 사용할 수 있습니다. 버튼을 누르면 바로 다운로드됩니다.</p>
+            <p>사용하는 기기에 맞는 방법을 선택해 주세요. PC에서는 ZIP 파일을 내려받아 바로가기 아이콘을 설치하고, 스마트폰과 태블릿에서는 홈 화면에 앱 아이콘을 추가할 수 있습니다.</p>
           </div>
-          <div class="guide-install-steps">
-            <p><strong>PC</strong><span>상단의 ‘앱 다운로드’를 누른 뒤 내려받은 바로가기 파일을 바탕화면에 두고 실행합니다.</span></p>
-            <p><strong>Android</strong><span>Chrome 메뉴에서 ‘홈 화면에 추가’ 또는 ‘앱 설치’를 선택합니다.</span></p>
-            <p><strong>iPhone·iPad</strong><span>Safari의 공유 버튼을 누르고 ‘홈 화면에 추가’를 선택합니다.</span></p>
+          <div class="guide-device-cards">
+            <article class="guide-device-card guide-device-pc">
+              <h4>PC</h4>
+              <p>ZIP 파일을 내려받아 압축을 푼 뒤<br>install-UDL-app 파일을 실행합니다.</p>
+              <small>ZIP 파일 안에서 바로 실행하지 말고 먼저 압축을 풀어 주세요.</small>
+              <a class="primary guide-download-main" href="UDL-app-download.zip" download>PC용 앱 다운로드 (.zip)</a>
+            </article>
+            <article class="guide-device-card">
+              <h4>Android</h4>
+              <p>Chrome으로 앱에 접속한 뒤 브라우저 메뉴에서<br>홈 화면에 추가 또는 앱 설치를 선택합니다.</p>
+            </article>
+            <article class="guide-device-card">
+              <h4>iPhone·iPad</h4>
+              <p>Safari로 앱에 접속한 뒤 공유 버튼을 누르고<br>홈 화면에 추가를 선택합니다.</p>
+            </article>
           </div>
           <div class="guide-share-row">
-            <a id="publicAppLink" href="https://yuu8409-oss.github.io/udl-growth-record/" target="_blank" rel="noopener">yuu8409-oss.github.io/udl-growth-record</a>
-            <button id="copyAppLinkButton" class="soft guide-copy-button" type="button">링크 복사</button>
+            <a id="publicAppLink" class="soft guide-open-button" href="https://yuu8409-oss.github.io/udl-growth-record/" target="_blank" rel="noopener">웹앱 바로 열기</a>
+            <button id="copyAppLinkButton" class="ghost guide-copy-button" type="button">링크 복사</button>
             <span id="copyAppLinkStatus" class="guide-copy-status" role="status" aria-live="polite"></span>
           </div>
         </section>
 
-        <p class="guide-privacy-note">학생 실명, 장애명, 연락처 등 민감정보는 입력하지 않는 것을 권장합니다. 학생 코드를 사용해 주세요.</p>
+        <section class="guide-privacy-note" aria-label="개인정보 보호 안내">
+          <h3>개인정보 보호 안내</h3>
+          <p>학생 실명, 장애명, 연락처 등 민감정보는 입력하지 않는 것을 권장합니다.<br>학생 코드를 사용해 주세요.</p>
+        </section>
         <p class="guide-footer-signature">curated by oildong</p>
       </section>
     </section>
@@ -254,6 +268,6 @@
       });
     }
   </script>
-  <script src="app.js?v=114"></script>
+  <script src="app.js?v=118"></script>
 </body>
 </html>
