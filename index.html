@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0d1424" />
   <title>UDL 참여 관찰 기록</title>
-  <link rel="manifest" href="manifest.webmanifest?v=106" />
+  <link rel="manifest" href="manifest.webmanifest?v=112" />
   <link rel="apple-touch-icon" href="icon-192.png" />
-  <link rel="stylesheet" href="styles.css?v=106" />
+  <link rel="stylesheet" href="styles.css?v=112" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand-head">
       <img class="brand-logo" src="icon-192.png" alt="" />
       <div>
-        <div class="title-line"><h1>UDL로 함께 성장하는 우리</h1><span class="version-badge">v2.0 · 수정 106</span></div>
+        <div class="title-line"><h1>UDL로 함께 성장하는 우리</h1><span class="version-badge">v2.0 · 수정 112</span></div>
         <p class="eyebrow brand-subtitle">보편적 학습 설계를 적용한 수업 참여 기록 도구</p>
       </div>
     </div>
@@ -104,7 +104,10 @@
             <section class="context-summary strengths-summary"><h3>학생의 강점으로 보인 장면</h3><div class="context-grid strengths-grid"><article class="strength-card"><h4>강점으로 보인 과목</h4><div id="subjectSummaryList" class="strength-list"></div></article><article class="strength-card"><h4>강점으로 보인 활동</h4><div id="activitySummaryList" class="strength-list"></div></article></div><p class="strength-note">관찰 기간 동안 비교적 높은 참여가 나타난 과목과 활동입니다. 학생의 고정된 능력을 의미하지 않으며, 수업 장면을 돌아보기 위한 참고 자료입니다.</p></section>
           </details>
           
-          <details class="result-section details-section interpretation"><summary>해석 안내</summary><div class="interpretation-body"><p>이 앱은 학생을 평가하거나 진단하기 위한 도구가 아니라, UDL 지원을 적용한 수업 장면에서 학생의 참여 흐름을 돌아보기 위한 참고 기록 도구입니다.</p><h4>이 앱으로 살펴볼 수 있는 것</h4><ul><li>최근 참여 점수가 상승·유지·하락하는 흐름</li><li>UDL 원리별 지원이 선택된 기록에서 나타난 참여 점수</li><li>높은 참여 기록에서 함께 나타난 UDL 지원</li><li>자주 기록된 UDL 지원 전략</li><li>참여가 낮았던 기록에서 함께 나타난 수업 맥락</li><li>특정 과목이나 활동에서 비교적 참여가 잘 나타난 장면</li><li>다음 수업에서 유지하거나 조정해 볼 지원 방향</li></ul><h4>주의할 점</h4><p>기록 결과는 학생의 능력이나 태도를 평가하는 자료가 아닙니다. 또한 UDL 지원과 참여 변화 사이의 인과관계를 단정하지 않습니다. 과목, 활동 유형, 시간대, 학생 컨디션, 또래 관계, 수업 환경 등을 함께 고려해 조심스럽게 해석해 주세요.</p><p class="interpretation-final">결과는 “무엇이 효과였다”를 확정하기보다, “어떤 지원과 수업 장면에서 참여가 어떻게 나타났는지”를 돌아보기 위한 자료입니다.</p></div></details>
+          <section class="result-section next-lesson-panel">
+            <h3>다음 수업에서 살펴볼 방향</h3>
+            <ol id="nextLessonDirections" class="next-lesson-list"></ol>
+          </section>
         </section>
       </section>
     </section>
@@ -237,9 +240,18 @@
       document.body.appendChild(box);
     });
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(registration => {
+            registration.update();
+            if (registration.waiting) {
+              registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+            }
+          })
+          .catch(() => {});
+      });
     }
   </script>
-  <script src="app.js?v=106"></script>
+  <script src="app.js?v=112"></script>
 </body>
 </html>
