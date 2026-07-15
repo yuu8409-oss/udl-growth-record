@@ -1,12 +1,12 @@
-const CACHE_NAME = 'udl-growth-v2-118';
-const INDEX_URL = './index.html?v=118';
+const CACHE_NAME = 'udl-growth-v2-119';
+const INDEX_URL = './index.html?v=119';
 const APP_SHELL = [
   './',
   './index.html',
   INDEX_URL,
-  './styles.css?v=118',
-  './app.js?v=118',
-  './manifest.webmanifest?v=118',
+  './styles.css?v=119',
+  './app.js?v=119',
+  './manifest.webmanifest?v=119',
   './icon-192.png',
   './icon-512.png',
   './icon.ico',
